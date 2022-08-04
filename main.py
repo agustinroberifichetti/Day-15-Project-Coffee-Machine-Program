@@ -31,6 +31,7 @@ def check_money(user_option, money_inserted):
         return resources
 
 
+machine_in_process = True
 while machine_in_process:
     user_option = input("What would you like to drink? (espresso / latte / cappuccino): ").lower()
 

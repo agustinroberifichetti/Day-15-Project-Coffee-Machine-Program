@@ -5,10 +5,10 @@ valid_options = ["espresso", "latte", "cappuccino", "report", "turn off machine"
 
 def ask_for_money():
     quarters = int(input("How many quarters? -> "))
-    pennies = int(input("How many pennies? -> "))
-    nickles = int(input("How many nickles? -> "))
     dimes = int(input("How many dimes? -> "))
-    return quarters * 0.25 + pennies * 0.1 + nickles * 0.05 + dimes * 0.01
+    nickles = int(input("How many nickles? -> "))
+    pennies = int(input("How many pennies? -> "))
+    return quarters * 0.25 + dimes * 0.1 + nickles * 0.05 + pennies * 0.01
 
 
 def check_resources_available(ingredients, current_resources):

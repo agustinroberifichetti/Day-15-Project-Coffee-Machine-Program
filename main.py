@@ -45,7 +45,7 @@ while machine_in_process:
         machine_in_process = False
         print("See you next time!")
     else:
-        if check_resources_available(MENU[user_option]['ingredients'], resources) == False:
+        if not check_resources_available(MENU[user_option]['ingredients'], resources):
             None
         else:
             print(f"\nThe cost is ${MENU[user_option]['cost']}. Please, insert coins.")

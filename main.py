@@ -16,15 +16,16 @@ def check_resources_available(ingredients, current_resources):
         if ingredients[ingredient] > current_resources[ingredient]:
             print(f"There is not enough {ingredient} to prepare your drink. Please, let know the manager")
             return False
+    return True
 
 
-def check_money(user_option, money_inserted):
-    if money_inserted >= user_option['cost']:
-        change = round(money_inserted - user_option['cost'], 2)
-        print(f"Transaction successful. Your change is {change}.")
-        for ingredient in user_option['ingredients']:
-            resources[ingredient] -= user_option['ingredients'][ingredient]
-        resources["money"] += user_option['cost']
+def check_money(user_choice, money_inserted):
+    if money_inserted >= user_choice['cost']:
+        change = round(money_inserted - user_choice['cost'], 2)
+        print(f"Transaction successful. Your change is {change}.\nHere is your {user_option}, enjoy!!")
+        for ingredient in user_choice['ingredients']:
+            resources[ingredient] -= user_choice['ingredients'][ingredient]
+        resources["money"] += user_choice['cost']
         return resources
     else:
         print("Sorry, the money inserted is not enough for purchasing the selected beverage.")
@@ -45,8 +46,6 @@ while machine_in_process:
         machine_in_process = False
         print("See you next time!")
     else:
-        if not check_resources_available(MENU[user_option]['ingredients'], resources):
-            None
-        else:
+        if check_resources_available(MENU[user_option]['ingredients'], resources):
             print(f"\nThe cost is ${MENU[user_option]['cost']}. Please, insert coins.")
             resources = check_money(MENU[user_option], ask_for_money())
